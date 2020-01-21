@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  persons: any[] = [];
+  persons: any = [];
 
   constructor( 
     private http: HttpClient
@@ -16,7 +16,7 @@ export class Tab3Page {
   getUsers() {
     this.http.get('https://randomuser.me/api/?results=10').subscribe(data=>{
       //process the json data
-      this.persons = data.results;
+      this.persons = data['results'];
       console.log(data)
     })
   }

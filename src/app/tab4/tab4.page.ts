@@ -18,13 +18,13 @@ export class Tab4Page implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getData()
+    this.getData('');
   }
 
-  getData() {
+  getData(value) {
     this.showResults = false;
 
-    this.http.get(this.url+this.name, {
+    this.http.get(this.url+value, {
     })
     .subscribe(data=>{
       //process the json data
@@ -38,6 +38,8 @@ export class Tab4Page implements OnInit {
   onInput($event) {
 
     var value = $event.srcElement.value;
+
+    this.getData(value);
 
     this.drinks = this.allDrinks.filter(drink => {
       if (drink.strDrink.toLowerCase().indexOf(value.toLowerCase()) > -1) {

@@ -11,18 +11,11 @@
       <h1>Drinks</h1>
     </ion-text>
   </ion-item>
-  
-  <ion-item>
-    <ion-input type="text" [(ngModel)]="name" placeholder="Buscar bebidas en la API"></ion-input>
-    <ion-button (click)="getData()">
-      Buscar
-    </ion-button>
-  </ion-item>
 
   <ion-toolbar>
     <ion-searchbar 
       (ionInput)="onInput($event)"
-      placeholder="Filtar entre los resultados"
+      placeholder="Buscar bebidas"
     ></ion-searchbar>
   </ion-toolbar>
 
