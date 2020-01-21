@@ -8,13 +8,13 @@
 
 <ion-content>
 
-  <ion-button (click)="getNewUser()">
+  <ion-button (click)="getValidUser()">
     Click me
   </ion-button>
 
   <pre>{{person.gender}}</pre>
 
-  <ion-card *ngIf="person">
+  <ion-card *ngIf="person.picture">
     <ion-card-header>
       <ion-avatar>
         <img [src]="person.picture.large">

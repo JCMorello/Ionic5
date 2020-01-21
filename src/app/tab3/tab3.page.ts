@@ -14,16 +14,23 @@ export class Tab3Page {
   ) {}
 
   ngOnInit() {
-    this.getNewUser()
+    this.getValidUser()
   }
 
   getNewUser() {
     this.http.get('https://randomuser.me/api').subscribe(data=>{
       //process the json data
       this.person = data['results'][0];
-      console.log(this.person)
     })
+    return this.person;
   }
 
+  getValidUser() {
+
+    this.getNewUser()
+
+    console.log("Obteniendo nuevo usuario...", this.person.gender)
+
+  }
 
 }
