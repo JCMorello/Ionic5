@@ -8,23 +8,23 @@
 
 <ion-content>
 
-  <ion-button (click)="getUsers()">
+  <ion-button (click)="getNewUser()">
     Click me
   </ion-button>
 
-  <ion-list *ngFor="let p of persons">
-    <ion-card>
-      <ion-card-header>
-        <ion-avatar>
-          <img [src]="p.picture.medium">
-        </ion-avatar>
-          <ion-card-subtitle>{{p.name.title}} {{p.name.first}} {{p.name.last}}</ion-card-subtitle>
-          <ion-card-title>{{p.login.username}}</ion-card-title>
-        </ion-card-header>
-      <ion-card-content>
-        {{p.email}}
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+  <pre>{{person.gender}}</pre>
+
+  <ion-card *ngIf="person">
+    <ion-card-header>
+      <ion-avatar>
+        <img [src]="person.picture.large">
+      </ion-avatar>
+        <ion-card-subtitle>{{person.name.title}} {{person.name.first}} {{person.name.last}}</ion-card-subtitle>
+        <ion-card-title>{{person.login.username}}</ion-card-title>
+      </ion-card-header>
+    <ion-card-content>
+      {{person.email}}
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
