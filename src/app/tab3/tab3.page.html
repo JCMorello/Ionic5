@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Persons
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button (click)="getUsers()">
+    Click me
+  </ion-button>
+
+  <ion-list *ngFor="let p of persons">
+    <ion-card>
+      <ion-card-header>
+        <ion-avatar>
+          <img [src]="p.picture.medium">
+        </ion-avatar>
+          <ion-card-subtitle>{{p.name.title}} {{p.name.first}} {{p.name.last}}</ion-card-subtitle>
+          <ion-card-title>{{p.login.username}}</ion-card-title>
+        </ion-card-header>
+      <ion-card-content>
+        {{p.email}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

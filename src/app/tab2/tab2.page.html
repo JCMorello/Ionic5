@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      To-do List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-text color="primary">
+      <h1>TODO LIST</h1>
+    </ion-text>
+  </ion-item>
+
+  <ion-item-sliding *ngFor="let i of items">
+    <ion-item><ion-label>{{i}}</ion-label>
+      <ion-button (click)="deleteButton(i)" color="danger" position="right">
+        Borrar
+      </ion-button>
+    </ion-item>
+  </ion-item-sliding>
+
+
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="item" placeholder="Add task here" (keyup.enter)="addButton()"></ion-input>
+    <ion-button (click)="addButton()">
+      Añadir
+    </ion-button>
+  </ion-item>
+  
+</ion-content>

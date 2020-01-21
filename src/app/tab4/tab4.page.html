@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>DRINKS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item>
+    <ion-text color="primary">
+      <h1>Drinks</h1>
+    </ion-text>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="name" placeholder="Buscar bebidas en la API"></ion-input>
+    <ion-button (click)="getData()">
+      Buscar
+    </ion-button>
+  </ion-item>
+
+  <ion-toolbar>
+    <ion-searchbar 
+      (ionInput)="onInput($event)"
+      placeholder="Filtar entre los resultados"
+    ></ion-searchbar>
+  </ion-toolbar>
+
+
+  <ion-item>
+    <ion-label *ngIf="showResults">
+      <span *ngIf="drinks.length > 0; else loggedOut">
+        {{drinks.length}} Resultados
+      </span>
+      <ng-template #loggedOut color="danger">No se han encontrado resultados</ng-template>
+    </ion-label>
+  </ion-item>
+  
+
+  <ion-row>
+    <ion-list *ngFor="let d of drinks">
+      <ion-col class="ion-justify-content-start">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{d.strCategory}}</ion-card-subtitle>
+          <ion-card-title>{{d.strDrink}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{d.strInstructions}}
+        </ion-card-content>
+        <!--<img [src]="d.strDrinkThumb" alt="">-->
+        <ul>
+          <li><ion-label>{{d.strIngredient1}} {{d.strMeasure1}}</ion-label></li>
+          <li><ion-label>{{d.strIngredient2}} {{d.strMeasure2}}</ion-label></li>
+        </ul>
+        
+      </ion-card>
+      </ion-col>
+    </ion-list>
+  </ion-row>
+
+</ion-content>

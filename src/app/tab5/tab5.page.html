@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-text color="primary">
+      <h1>Contact Form</h1>
+    </ion-text>
+  </ion-item>
+
+  <!-- <form [formGroup]="form" (ngSubmit)="saveDetails(form.value)">
+
+    <ion-item margin-bottom>
+      <ion-label position="floating">Your Name</ion-label>
+      <ion-input type="text" [formControl]="form.controls['name']"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Repetir Contraseña</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telefono</ion-label>
+      <ion-input inputmode="tel"></ion-input>
+    </ion-item>
+    
+    <ion-button expand="block" type="submit">Enviar</ion-button>
+
+    <ion-item float-right lines="none">
+      <ion-button color="primary" text-center block [disabled]="!form.valid">Save Details</ion-button>
+    </ion-item>
+  </form>
+ -->
+
+ <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input autocapitalize inputmode="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input inputmode="tel" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input inputmode="email" formControlName="email"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list formGroupName="address">
+    <ion-list-header>
+      <ion-label>Address</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Street</ion-label>
+      <ion-input formControlName="street"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">City</ion-label>
+      <ion-input formControlName="city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">State</ion-label>
+      <ion-input formControlName="state"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Zip Code</ion-label>
+      <ion-input formControlName="zip"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button [disabled]="!registrationForm.valid" type="submit" expand="block">Submit <ion-icon slot="end"
+      name="create">
+    </ion-icon>
+  </ion-button>
+</form>
+
+
+
+</ion-content>
